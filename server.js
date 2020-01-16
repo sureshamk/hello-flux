@@ -5,9 +5,9 @@ const express = require('express');
 // Constants
 const PORT = 80;
 const HOST = '0.0.0.0';
-const logger = require('pino')()
+const logger = require('pino')();
 
-logger.info('sample log from pino')
+logger.info('sample log from pino');
 // App
 const app = express();
 app.get('/', (req, res) => {
@@ -23,6 +23,12 @@ app.get('/test-pino', (req, res) => {
   logger.warn(`warn`);
   logger.error(`error`);
   logger.fatal(`fatal`);
+
+  logger.debug({ debug: 'debug' });
+  logger.info({ info: 'info' });
+  logger.warn({ warn: 'warn' });
+  logger.error({ error: 'error' });
+  logger.fatal({ fatal: 'fatal' });
 
   res.send('test-pino\n');
 });
